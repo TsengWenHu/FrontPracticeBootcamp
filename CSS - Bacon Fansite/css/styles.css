@@ -1,0 +1,31 @@
+/* tag selector */
+h1{
+    color: red;
+}
+
+img:hover{ /* psudo class */
+    background-color: gold;
+}
+
+
+/* class selector */
+.bacon{
+    background-color: greenyellow;
+}
+
+.broccoli{
+    background-color: red;
+}
+
+.circular{
+    border-radius: 100%;
+}
+
+/* id selector */
+#heading{
+    color: blue;
+}
+
+/* ID SELECTOR VS CLASS SELECTOR */
+/* only single id name in one html file */
+/* apply a group of elements with same style */
