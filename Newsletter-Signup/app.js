@@ -35,10 +35,16 @@ app.post("/", function(req, res){
     const url =  "https://us17.api.mailchimp.com/3.0/lists/2375f8a0fe"
     const options = {
         method: "post",
-        auth: "ruby1:19b5129a5df1d059c0cda4383d2e25fb-us17"
+        auth: "ruby1:02f32b1a1a5ecd818c81db81f241abaa-us7"
     }
 
     const request = https.request(url, options, function(response){
+        if (response.statusCode === 200){
+            res.sendFile(__dirname+"/success.html")
+        }else{
+            res.sendFile(__dirname+"/failure.html")
+        }
+
         response.on("data", function(data){
             console.log(JSON.parse(data))
         })
@@ -48,7 +54,12 @@ app.post("/", function(req, res){
     request.end()
 })
 
-app.listen(3000, function(){
+app.post("/failure", function(req, res){
+    res.redirect("/")
+})
+
+// TODO: add successs button "Add Another"
+app.listen(process.env.PORT || 3000, function(){
     console.log("Server is running on port 3000")
 })
 
